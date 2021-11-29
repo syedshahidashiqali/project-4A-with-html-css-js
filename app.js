@@ -25,6 +25,8 @@ pauseBtn.onclick = () => {
     backWheelAnimation.pause();
     frontWheelAnimation.pause();
     carAnimation.pause();
+    cityAnimation.pause();
+    highwayAnimation.pause();
 }
 playBtn.onclick = () => {
     birdAnimation.play();
@@ -32,6 +34,8 @@ playBtn.onclick = () => {
     backWheelAnimation.play();
     frontWheelAnimation.play();
     carAnimation.play();
+    cityAnimation.play();
+    highwayAnimation.play();
 }
 reverseBtn.onclick = () => {
     birdAnimation.reverse();
@@ -39,6 +43,8 @@ reverseBtn.onclick = () => {
     backWheelAnimation.reverse();
     frontWheelAnimation.reverse();
     carAnimation.reverse();
+    cityAnimation.reverse();
+    highwayAnimation.reverse();
 }
 speedUpBtn.onclick = () => {
     birdAnimation.playbackRate *= 2;
@@ -46,6 +52,8 @@ speedUpBtn.onclick = () => {
     backWheelAnimation.playbackRate *= 2;
     frontWheelAnimation.playbackRate *= 2;
     carAnimation.playbackRate *= 2;
+    cityAnimation.playbackRate *= 2;
+    highwayAnimation.playbackRate *= 2;
 }
 speedDownBtn.onclick = () => {
     birdAnimation.playbackRate *= .5;
@@ -53,6 +61,8 @@ speedDownBtn.onclick = () => {
     backWheelAnimation.playbackRate *= .5;
     frontWheelAnimation.playbackRate *= .5;
     carAnimation.playbackRate *= .5;
+    cityAnimation.playbackRate *= .5;
+    highwayAnimation.playbackRate *= .5;
 }
 
 
@@ -100,4 +110,29 @@ var carAnimation = car.animate(carKeyFrame, {
     iterations:Infinity,
     direction: "alternate"
 })
-state.innerHTML += birdAnimation.playState
+
+const city = document.querySelector(".city");
+const highway = document.querySelector(".highway");
+
+var cityKeyFrame = [
+    {transform: 'translateX(0%)'},
+    {transform: 'translateX(-10%)'},
+]
+
+
+var cityAnimation = city.animate(cityKeyFrame, {
+    duration:20000,
+    iterations:Infinity,
+})
+
+var highwayKeyFrame = [
+    {transform: 'translateX(0%)'},
+    {transform: 'translateX(-10%)'},
+    {transform: 'translateX(-20%)'},
+]
+
+var highwayAnimation = highway.animate(highwayKeyFrame, {
+    duration:20000,
+    iterations:Infinity,
+})
+// state.innerHTML += birdAnimation.playState
