@@ -22,22 +22,37 @@ var birdAnimation = bird.animate(birdKeyframes, {
 pauseBtn.onclick = () => {
     birdAnimation.pause();
     cloudAnimation.pause();
+    backWheelAnimation.pause();
+    frontWheelAnimation.pause();
+    carAnimation.pause();
 }
 playBtn.onclick = () => {
     birdAnimation.play();
     cloudAnimation.play();
+    backWheelAnimation.play();
+    frontWheelAnimation.play();
+    carAnimation.play();
 }
 reverseBtn.onclick = () => {
     birdAnimation.reverse();
     cloudAnimation.reverse();
+    backWheelAnimation.reverse();
+    frontWheelAnimation.reverse();
+    carAnimation.reverse();
 }
 speedUpBtn.onclick = () => {
     birdAnimation.playbackRate *= 2;
     cloudAnimation.playbackRate *= 2;
+    backWheelAnimation.playbackRate *= 2;
+    frontWheelAnimation.playbackRate *= 2;
+    carAnimation.playbackRate *= 2;
 }
 speedDownBtn.onclick = () => {
     birdAnimation.playbackRate *= .5;
     cloudAnimation.playbackRate *= .5;
+    backWheelAnimation.playbackRate *= .5;
+    frontWheelAnimation.playbackRate *= .5;
+    carAnimation.playbackRate *= .5;
 }
 
 
@@ -54,21 +69,35 @@ var cloudAnimation = cloudDiv.animate(cloudKeyframes, {
     iterations :Infinity
 })
 
+// Wheels Animation
+const frontWheel = document.querySelector(".front-wheel");
+const backWheel = document.querySelector(".back-wheel");
 
-// var aliceTumbling = [
-//     { transform: 'rotate(0) translate3D(-50%, -50%, 0)', color: '#000' },
-//     { color: '#431236', offset: 0.3 },
-//     { transform: 'rotate(360deg) translate3D(-50%, -50%, 0)', color: '#000' }
-//   ];
+var wheelsKeyFrames = [
+    {transform: 'rotate(0deg)'},
+    {transform: 'rotate(3600deg)'},
+]
+var backWheelAnimation = backWheel.animate(wheelsKeyFrames, {
+    duration: 20000,
+    iterations: Infinity
+})
+var frontWheelAnimation = frontWheel.animate(wheelsKeyFrames, {
+    duration: 20000,
+    iterations: Infinity
+})
 
-//   var aliceTiming = {
-//     duration: 3000,
-//     iterations: Infinity
-//   }
 
-//   bird.animate(
-//     aliceTumbling,
-//     aliceTiming
-//   )
+// Car Animation
+const car = document.querySelector(".car");
 
+carKeyFrame = [
+    {transform: "translateY(0px)"},
+    {transform: "translateY(2px)"},
+]
+
+var carAnimation = car.animate(carKeyFrame, {
+    duration:2000,
+    iterations:Infinity,
+    direction: "alternate"
+})
 state.innerHTML += birdAnimation.playState
