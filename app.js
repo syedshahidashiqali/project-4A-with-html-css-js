@@ -27,6 +27,7 @@ pauseBtn.onclick = () => {
     carAnimation.pause();
     cityAnimation.pause();
     highwayAnimation.pause();
+    state.innerHTML = `Animation State: ${birdAnimation.playState}`
 }
 playBtn.onclick = () => {
     birdAnimation.play();
@@ -36,6 +37,7 @@ playBtn.onclick = () => {
     carAnimation.play();
     cityAnimation.play();
     highwayAnimation.play();
+    state.innerHTML = `Animation State: ${birdAnimation.playState}`
 }
 reverseBtn.onclick = () => {
     birdAnimation.reverse();
@@ -116,7 +118,7 @@ const highway = document.querySelector(".highway");
 
 var cityKeyFrame = [
     {transform: 'translateX(0%)'},
-    {transform: 'translateX(-10%)'},
+    {transform: 'translateX(-20%)'},
 ]
 
 
@@ -135,4 +137,4 @@ var highwayAnimation = highway.animate(highwayKeyFrame, {
     duration:20000,
     iterations:Infinity,
 })
-// state.innerHTML += birdAnimation.playState
+state.innerHTML += birdAnimation.playState;
